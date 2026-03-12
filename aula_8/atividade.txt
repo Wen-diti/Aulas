@@ -1,0 +1,52 @@
+Classe Carros:
+
+    Atributos: Marca, Modelo, Cor, Motor
+    Métodos:   Acelerar, Frear, Trocar Marcha, Ligar Carro, Desligar Carro
+
+    Ford Fiesta: Ford, Fiesta, Vermelho, 1.0
+
+    Ferrari: Ferrari, GTS Turbo, Vermelha, 2.0
+
+    Mustang: Ford, Mustang S197, Verde, 4.0
+
+
+Classe Pessoas:
+
+    Atributos: Nome, Idade, Altura
+    Método: Comer, Andar, Correr, Dormir
+
+    Pessoa 1: Neymar, 34, 1.75
+    
+    Pessoa 2: Tony Stark, 60, 1.73
+
+    Pessoa 3: Everton Cebolinha, 29, 1.74
+
+
+Classe Animal:
+
+    Atributos: Nome, Cor, Quantidade de Patas
+
+    Métodos: Correr, Dormir, Beber, Reproduzir
+
+    Animal 1: Leão, bege, 4
+
+    Animal 2: Humano, Cor de pele (interpretavel), 2
+
+    Animal 3: Quero-Quero, Cinza, 2
+
+    Animal 4: Capivara, Marrom, 4
+
+
+Classe Produto:
+
+    Atributos: Nome, Marca, Origem
+
+    Métodos: Vender, Comprar, Repor
+
+    Produto 1: Chocolate, Lacta, Cacau
+
+    Produto 2: Amaciamante, Downy, Sabão
+
+    Produto 3: Esponja de Aço, Bom Bril, Aço
+
+    Produto 4: Shampoo, ClearMan, Sabão
