@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang='pt-br'>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Prova</title>
+    <link rel='stylesheet' href='style.css'>
+</head>
+<body>
+    <section class='produtoInfo'>
+        <h1>Painel de Análise de Produtos</h1>
+        <section class='cadastroProduto'>
+            <input type='text' placeholder='Nome do produto' id='produtoNome'>
+            <input type='number' placeholder='Quantidade' id='produtoQuantidade'>
+            <input type='number' placeholder='Preço (R$)' id='produtoPreco'>
+            <button id='cadastrarProduto'>Adicionar Produto</button>
+        </section>
+        <section class='cardPrincipal'>
+            <div class='produtoCaro'>
+                <div class='produtoCaroTitulo'>
+                    <h3>Produto Mais Caro:</h3>
+                </div>
+                <div class='produtoCaroResultado'>
+                    <p id='produtoMaisCaroNome'></p>
+                </div>
+            </div>
+            <div class='produtoQuantidade'>
+                <div class='produtoQuantidadeTitulo'>
+                    <h3>Maior Quantidade:</h3>
+                </div>
+                <div class='produtoQuantidadeResultado'>
+                    <p id='produtoMaiorQuantidadeNome'></p>
+                </div>
+            </div>
+            <div class='valorEstoque'>
+                <div class='valorEstoqueTitulo'>
+                    <h3>Valor Total em Estoque:</h3>
+                </div>
+                <div class='valorEstoqueResultado'>
+                    <p id='valorTotalEstoque'></p>
+                </div>
+            </div>
+        </section>
+    </section>
+    <script src='script.js'></script>
+</body>
+</html>
