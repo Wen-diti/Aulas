@@ -1,0 +1,120 @@
+<div style="width: 800px; height: 500px;">
+    <canvas id="myChart"></canvas>
+</div>
+
+<div style="width: 800px; height: 500px;">
+    <canvas id="myChart2"></canvas>
+</div>
+
+
+<script src="chart.js"></script>
+
+<script>
+
+    const vendas = [
+        { id: 1, produto: "Notebook", categoria: "Eletrônicos", preco: 3500, quantidade: 2, cliente: "Ana", cidade: "Curitiba", data: "2025-01-10" },
+        { id: 2, produto: "Celular", categoria: "Eletrônicos", preco: 2000, quantidade: 1, cliente: "Carlos", cidade: "São Paulo", data: "2025-01-12" },
+        { id: 3, produto: "Camiseta", categoria: "Roupas", preco: 80, quantidade: 3, cliente: "João", cidade: "Curitiba", data: "2025-01-15" },
+        { id: 4, produto: "Calça", categoria: "Roupas", preco: 120, quantidade: 2, cliente: "Maria", cidade: "Rio de Janeiro", data: "2025-01-20" },
+        { id: 5, produto: "Tênis", categoria: "Calçados", preco: 300, quantidade: 1, cliente: "Ana", cidade: "Curitiba", data: "2025-02-01" },
+        { id: 6, produto: "Fone", categoria: "Eletrônicos", preco: 150, quantidade: 4, cliente: "Pedro", cidade: "Belo Horizonte", data: "2025-02-03" },
+        { id: 7, produto: "Relógio", categoria: "Acessórios", preco: 500, quantidade: 1, cliente: "Lucas", cidade: "São Paulo", data: "2025-02-10" },
+        { id: 8, produto: "Mochila", categoria: "Acessórios", preco: 200, quantidade: 2, cliente: "Fernanda", cidade: "Curitiba", data: "2025-02-15" },
+        { id: 9, produto: "Tablet", categoria: "Eletrônicos", preco: 1800, quantidade: 1, cliente: "Carlos", cidade: "São Paulo", data: "2025-02-18" },
+        { id: 10, produto: "Jaqueta", categoria: "Roupas", preco: 250, quantidade: 1, cliente: "Ana", cidade: "Curitiba", data: "2025-03-01" },
+        { id: 11, produto: "Sandália", categoria: "Calçados", preco: 120, quantidade: 2, cliente: "Juliana", cidade: "Salvador", data: "2025-03-03" },
+        { id: 12, produto: "Boné", categoria: "Acessórios", preco: 70, quantidade: 3, cliente: "Pedro", cidade: "Belo Horizonte", data: "2025-03-05" },
+        { id: 13, produto: "Monitor", categoria: "Eletrônicos", preco: 900, quantidade: 1, cliente: "Lucas", cidade: "São Paulo", data: "2025-03-10" },
+        { id: 14, produto: "Teclado", categoria: "Eletrônicos", preco: 250, quantidade: 2, cliente: "Fernanda", cidade: "Curitiba", data: "2025-03-12" },
+        { id: 15, produto: "Mouse", categoria: "Eletrônicos", preco: 100, quantidade: 3, cliente: "João", cidade: "Curitiba", data: "2025-03-15" }
+    ];
+
+    const ctx = document.getElementById('myChart');
+
+    function a(vendas) {
+        const totaisPorCategoria = {};
+
+        vendas.forEach((p) => {
+            const total = p.preco * p.quantidade;
+
+            if (!totaisPorCategoria[p.categoria]) {
+                totaisPorCategoria[p.categoria] = 0;
+            }
+
+            totaisPorCategoria[p.categoria] += total;
+        });
+
+        const labels = Object.keys(totaisPorCategoria);
+        const valores = Object.values(totaisPorCategoria);
+
+        const listaDados = []
+
+        listaDados.push(labels)
+        listaDados.push(valores)
+
+        return listaDados
+    }
+
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: a(vendas)[0],
+            datasets: [{
+                label: 'Valor por Categoria',
+                data: a(vendas)[1],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            maintainAspectRatio: false,
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+
+    const ctx2 = document.getElementById('myChart2');
+
+    function b(vendas) {
+        const agrupCategoria = {};
+
+        vendas.forEach((p) => {
+
+            if (!agrupCategoria[p.categoria]) {
+                agrupCategoria[p.categoria] = 0;
+            }
+
+            agrupCategoria[p.categoria] += p.quantidade;
+        });
+
+        const labels = Object.keys(agrupCategoria);
+        const valores = Object.values(agrupCategoria);
+
+        const listaDados = []
+
+        listaDados.push(labels)
+        listaDados.push(valores)
+
+        return listaDados
+    }
+
+    console.log(b(vendas))
+
+    new Chart(ctx2, {
+        type: 'pie',
+        data: {
+            labels: b(vendas)[0],
+            datasets: [{
+                label: 'Soma Categorias ',
+                data: b(vendas)[1],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            maintainAspectRatio: false,
+        }
+    });
+
+</script>
