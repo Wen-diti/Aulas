@@ -13,3 +13,16 @@ export function validateRegister(req, res, next){
 
     next();
 }
+
+export const validataUpdate = (req, res, next) => {
+    const {name, email, password} = req.body
+
+    connection.query('SELECT FROM user WHERE id = ?',
+        [id],
+        (err, results) => {
+            if(err){
+                return res.status(400).send({response: 'Este usuário não foi encontrado'})
+            }
+        }
+    )
+}
